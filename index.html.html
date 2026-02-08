@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Escarlette 💖</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 80px 20px;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.3em;
+    }
+
+    button {
+      background-color: #ff4b5c;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #ff1e3c;
+      transform: scale(1.1);
+    }
+
+    #pregunta {
+      display: none;
+      margin-top: 30px;
+    }
+
+    #respuesta {
+      display: none;
+      margin-top: 40px;
+      font-size: 1.8em;
+      animation: aparecer 1s ease-in-out;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .corazon {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 20px;
+      animation: flotar 6s infinite ease-in;
+    }
+
+    @keyframes flotar {
+      0% { bottom: -10px; opacity: 0; }
+      50% { opacity: 1; }
+      100% { bottom: 110%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hola bb 💕</h1>
+  <p>Tengo algo muy importante que preguntarte !</p>
+
+  <button onclick="mostrarPregunta()">Ver mensaje 💌</button>
+
+  <div id="pregunta">
+    <h1>💘 Amor, ¿Quieres ser mi Valentín este 14 de febrero? 💘</h1>
+    <button onclick="respuestaFinal()">Sí 💕</button>
+    <button onclick="respuestaFinal()">Obvio que sí 😍</button>
+  </div>
+
+  <div id="respuesta">
+    🥰 Sabía que dirías que sí amorcito 💖<br>
+    Siempre te dare las gracias por elegirme a mi todos los días <3<br>
+    Te amo muchísimo 🌹✨
+  </div>
+
+  <script>
+    function mostrarPregunta() {
+      document.getElementById("pregunta").style.display = "block";
+    }
+
+    function respuestaFinal() {
+      document.getElementById("respuesta").style.display = "block";
+      crearCorazones();
+    }
+
+    function crearCorazones() {
+      for (let i = 0; i < 20; i++) {
+        let corazon = document.createElement("div");
+        corazon.className = "corazon";
+        corazon.innerHTML = "❤️";
+        corazon.style.left = Math.random() * 100 + "vw";
+        corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(corazon);
+
+        setTimeout(() => {
+          corazon.remove();
+        }, 6000);
+      }
+    }
+  </script>
+
+</body>
+</html>
